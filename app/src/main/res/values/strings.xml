@@ -3,4 +3,10 @@
     <string name="title_tasks">Tasks</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_task_manager">Task Manager</string>
+    <string name="current_tasks">Current Tasks</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="skills_and_traits">Skills and Traits</string>
+    <string name="task_history">Task History</string>
+    <string name="settings">Settings</string>
+
 </resources>

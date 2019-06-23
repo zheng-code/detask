@@ -17,7 +17,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
+        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".TasksActivity"></activity>
+        <activity android:name=".TaskManagerActivity"></activity>
     </application>
 
 </manifest>
