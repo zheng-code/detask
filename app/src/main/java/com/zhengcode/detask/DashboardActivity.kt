@@ -33,5 +33,6 @@ class DashboardActivity : AppCompatActivity() {
         menuItem.isChecked = true
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
     }
 }

@@ -5,10 +5,15 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.MenuItem
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_tasks.*
 
 class TasksActivity : AppCompatActivity() {
+
+    lateinit var taskList: MutableList<OfferedTask>
+    lateinit var ref : DatabaseReference
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -25,14 +30,22 @@ class TasksActivity : AppCompatActivity() {
         }
         false
     }
+
+
+
+
     private fun setupRecycleView() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
 
-        val adapter = TasksAdapter(this, Supplier.tasks)
+        val adapter = TasksAdapter(this, taskList)
         recyclerView.adapter = adapter
+        Log.i("TasksActivity", "Number of items: ${taskList.size}")
+
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +58,32 @@ class TasksActivity : AppCompatActivity() {
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
-        setupRecycleView()
+
+
+
+
+        // Section that creates list of tasks taskList and displays them ///////////
+        taskList = mutableListOf()
+        val ref = FirebaseDatabase.getInstance().getReference("task")
+
+
+        ref.addValueEventListener(object : ValueEventListener {
+
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0.exists()) {
+                    for (h in p0.children) {
+                        val tasknow = h.getValue(OfferedTask::class.java)
+                        taskList.add(tasknow!!)
+                    }
+
+                    setupRecycleView()
+                }
+            }
+        })
+
     }
 }
