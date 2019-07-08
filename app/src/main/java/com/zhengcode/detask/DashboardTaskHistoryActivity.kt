@@ -5,16 +5,10 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.MenuItem
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_tasks.*
+import kotlinx.android.synthetic.main.activity_dashboard_task_history.*
 
-class TasksActivity : AppCompatActivity() {
-
-    lateinit var taskList: MutableList<OfferedTask>
-    lateinit var ref : DatabaseReference
-
+class DashboardTaskHistoryActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_dashboard -> {
@@ -30,22 +24,14 @@ class TasksActivity : AppCompatActivity() {
         }
         false
     }
-
-
-
-
     private fun setupRecycleView() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         dashboard_task_history_recycler_view.layoutManager = layoutManager
 
-        val adapter = TasksAdapter(this, taskList)
+        val adapter = DashboardTaskHistoryAdapter(this, Supplier.tasks)
         dashboard_task_history_recycler_view.adapter = adapter
-        Log.i("TasksActivity", "Number of items: ${taskList.size}")
-
     }
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,37 +39,11 @@ class TasksActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         // when this Activity is created, check its corresponding menuItem
-        val menuItem: MenuItem = navView.menu.getItem(1)
+        val menuItem: MenuItem = navView.menu.getItem(0)
         menuItem.isChecked = true
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
-
-
-
-
-        // Section that creates list of tasks taskList and displays them ///////////
-        taskList = mutableListOf()
-        val ref = FirebaseDatabase.getInstance().getReference("task")
-
-
-        ref.addValueEventListener(object : ValueEventListener {
-
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                if (p0.exists()) {
-                    for (h in p0.children) {
-                        val tasknow = h.getValue(OfferedTask::class.java)
-                        taskList.add(tasknow!!)
-                    }
-
-                    setupRecycleView()
-                }
-            }
-        })
-
+        setupRecycleView()
     }
 }

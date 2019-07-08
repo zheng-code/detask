@@ -17,7 +17,8 @@
     <string name="task_manager_submit_button">Submit</string>
     <string name="current_tasks">Current Tasks</string>
     <string name="edit_profile">Edit Profile</string>
-    <string name="skills_and_traits">Skills and Traits</string>
+    <string name="skills">Skills</string>
+    <string name="traits">Traits</string>
     <string name="task_history">Task History</string>
     <string name="settings">Settings</string>
 

@@ -25,6 +25,12 @@
         <activity android:name=".TasksActivity"></activity>
         <activity android:name=".TaskManagerActivity"></activity>
 
+        <activity android:name=".DashboardCurrentTasksActivity"></activity>
+        <activity android:name=".DashboardEditProfileActivity"></activity>
+        <activity android:name=".DashboardSkillsActivity"></activity>
+        <activity android:name=".DashboardTraitsActivity"></activity>
+        <activity android:name=".DashboardTaskHistoryActivity"></activity>
+        <activity android:name=".DashboardSettingsActivity"></activity>
     </application>
 
 </manifest>
