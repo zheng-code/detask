@@ -21,5 +21,13 @@
     <string name="traits">Traits</string>
     <string name="task_history">Task History</string>
     <string name="settings">Settings</string>
+    <string name="task_view_button">View</string>
+    <string name="accept_task_button">Accept Task</string>
+    <string name="message_user_button">Message</string>
+    <string name="task_view_title_caption">Title of Task</string>
+    <string name="task_view_description_caption">Description</string>
+    <string name="task_view_offer_caption">Offer</string>
+    <string name="task_view_location_caption">Location</string>
+    <string name="task_view_date_caption">Need-by date</string>
 
 </resources>

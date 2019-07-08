@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+
+    <ScrollView
+            android:layout_width="400dp"
+            android:layout_height="664dp" android:layout_marginEnd="6dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="6dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/task_manager_message"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.0"
+            android:id="@+id/scrollView2" android:layout_marginBottom="60dp">
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/task_view_profile_pic"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="26dp" android:layout_marginBottom="22dp"
+                    app:layout_constraintBottom_toTopOf="@+id/task_view_username"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="40dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="232dp"/>
+            <Button
+                    android:text="@string/message_user_button"
+                    android:layout_width="166dp"
+                    android:layout_height="51dp"
+                    android:id="@+id/message_user_button"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="29dp"
+                    app:layout_constraintEnd_toStartOf="@+id/accept_task_button" android:layout_marginEnd="27dp"
+                    android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/task_view_username"/>
+            <Button
+                    android:text="@string/accept_task_button"
+                    android:layout_width="162dp"
+                    android:layout_height="51dp"
+                    android:id="@+id/accept_task_button"
+                    android:layout_marginStart="27dp" app:layout_constraintStart_toEndOf="@+id/message_user_button"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
+                    android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/task_view_username"/>
+            <TextView
+                    android:text="Benjamin Welly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/task_view_username" android:textSize="24sp"
+                    android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/task_view_profile_pic"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="216dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="23dp"/>
+            <TextView
+                    android:text="@string/task_view_title_caption"
+                    android:layout_width="130dp"
+                    android:layout_height="35dp" android:id="@+id/task_view_title_caption"
+                    android:textSize="18sp" android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/message_user_button"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="254dp"
+                    android:textStyle="bold"/>
+            <TextView
+                    android:text="Restring my Guitar pls!"
+                    android:layout_width="367dp"
+                    android:layout_height="29dp"
+                    android:id="@+id/task_view_title" android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@+id/task_view_title_caption"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="17dp"/>
+            <TextView
+                    android:text="@string/task_view_description_caption"
+                    android:layout_width="130dp"
+                    android:layout_height="35dp" android:id="@+id/task_view_description_caption"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="254dp"
+                    android:layout_marginTop="13dp" app:layout_constraintTop_toBottomOf="@+id/task_view_title"
+                    android:layout_marginBottom="1dp" app:layout_constraintBottom_toTopOf="@+id/task_view_description"/>
+            <TextView
+                    android:text="I desperately need someone to help me restring my guitar. It is a yamaha acoustic and I have the strings provided"
+                    android:layout_width="361dp"
+                    android:layout_height="78dp"
+                    android:id="@+id/task_view_description" android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="17dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintTop_toBottomOf="@+id/task_view_description_caption"/>
+            <TextView
+                    android:text="@string/task_view_offer_caption"
+                    android:layout_width="87dp"
+                    android:layout_height="36dp"
+                    android:id="@+id/task_view_offer_caption" android:layout_marginStart="96dp"
+                    app:layout_constraintStart_toEndOf="@+id/task_view_profile_pic" android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="49dp"
+                    android:layout_marginTop="75dp" app:layout_constraintTop_toTopOf="parent" android:textStyle="bold"/>
+            <TextView
+                    android:text="$3.00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/task_view_offer" android:textSize="30sp"
+                    android:layout_marginTop="13dp" app:layout_constraintTop_toBottomOf="@+id/task_view_offer_caption"
+                    android:layout_marginBottom="66dp" app:layout_constraintBottom_toTopOf="@+id/accept_task_button"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="61dp"/>
+            <TextView
+                    android:text="@string/task_view_location_caption"
+                    android:layout_width="130dp"
+                    android:layout_height="35dp" android:id="@+id/task_view_location_caption"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="9dp"
+                    app:layout_constraintTop_toBottomOf="@+id/task_view_description"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="254dp"
+                    app:layout_constraintBottom_toTopOf="@+id/task_view_location"/>
+            <TextView
+                    android:text="Ridge View Residential College"
+                    android:layout_width="359dp"
+                    android:layout_height="49dp"
+                    android:id="@+id/task_view_location" android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/task_view_location_caption"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="23dp"/>
+            <TextView
+                    android:text="@string/task_view_date_caption"
+                    android:layout_width="130dp"
+                    android:layout_height="35dp" android:id="@+id/task_view_date_caption"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/task_view_location"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="254dp"
+                    app:layout_constraintBottom_toTopOf="@+id/task_view_date"/>
+            <TextView
+                    android:text="18/07/2019"
+                    android:layout_width="311dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/task_view_date" android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@+id/task_view_date_caption"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="73dp"/>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

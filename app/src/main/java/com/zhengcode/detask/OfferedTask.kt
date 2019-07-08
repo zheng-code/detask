@@ -8,3 +8,5 @@ class OfferedTask(val offer: Double, val title: String, val description: String,
 
 }
 
+// include an array of tags, use an enum of predefined tags
+// create a state with "waiting to be accepted", "currently being done", "deleted", "Finished"

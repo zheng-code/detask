@@ -19,7 +19,7 @@
 
         <TextView
                 android:id="@+id/txvTitle"
-                android:layout_width="0dp"
+                android:layout_width="198dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -28,6 +28,10 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
+        <Button
+                android:text="@string/task_view_button"
+                android:layout_width="1sp"
+                android:layout_height="46dp" android:id="@+id/taskViewButton" android:layout_weight="1"/>
         <ImageView
                 android:id="@+id/imgShare"
                 android:layout_width="30dp"
