@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.activities.dashboard
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,10 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
+import com.zhengcode.detask.R
+import com.zhengcode.detask.models.Supplier
+import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
+import com.zhengcode.detask.adapters.dashboard.DashboardTaskHistoryAdapter
 import kotlinx.android.synthetic.main.activity_dashboard_task_history.*
 
 class DashboardTaskHistoryActivity : AppCompatActivity() {

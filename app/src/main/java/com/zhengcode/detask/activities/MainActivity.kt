@@ -1,14 +1,16 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_dashboard_traits.*
+import com.zhengcode.detask.R
+import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
+import com.zhengcode.detask.activities.tasks.TasksActivity
+import com.zhengcode.detask.activities.dashboard.DashboardActivity
 
-class DashboardTraitsActivity: AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
+
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_dashboard -> {
@@ -16,6 +18,8 @@ class DashboardTraitsActivity: AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.navigation_tasks -> {
+                val intent = Intent(this, TasksActivity::class.java)
+                startActivity(intent)
             }
             R.id.navigation_task_manager -> {
                 val intent = Intent(this, TaskManagerActivity::class.java)
@@ -24,26 +28,19 @@ class DashboardTraitsActivity: AppCompatActivity() {
         }
         false
     }
-    private fun setupRecycleView() {
-        val layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-        dashboard_traits_recycler_view.layoutManager = layoutManager
-
-        val adapter = DashboardTraitsAdapter(this, Supplier.traitStubs)
-        dashboard_traits_recycler_view.adapter = adapter
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard_traits)
+        setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        // when this Activity is created, check its corresponding menuItem
+        /*
+        // when this Activity is created, uncheck the menuItem
+        // CURRENTLY DOESN'T WORK
         val menuItem: MenuItem = navView.menu.getItem(0)
-        menuItem.isChecked = true
+        menuItem.isChecked = false
+        */
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        setupRecycleView()
     }
 }

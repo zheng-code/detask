@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
 
         <activity
-                android:name=".MainActivity"
+                android:name=".activities.MainActivity"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,16 +21,16 @@
 
         </activity>
 
-        <activity android:name=".DashboardActivity"></activity>
-        <activity android:name=".TasksActivity"></activity>
-        <activity android:name=".TaskManagerActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardActivity"></activity>
+        <activity android:name=".activities.tasks.TasksActivity"></activity>
+        <activity android:name=".activities.taskmanager.TaskManagerActivity"></activity>
 
-        <activity android:name=".DashboardCurrentTasksActivity"></activity>
-        <activity android:name=".DashboardEditProfileActivity"></activity>
-        <activity android:name=".DashboardSkillsActivity"></activity>
-        <activity android:name=".DashboardTraitsActivity"></activity>
-        <activity android:name=".DashboardTaskHistoryActivity"></activity>
-        <activity android:name=".DashboardSettingsActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardCurrentTasksActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardEditProfileActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardSkillsActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardTraitsActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardTaskHistoryActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardSettingsActivity"></activity>
     </application>
 
 </manifest>

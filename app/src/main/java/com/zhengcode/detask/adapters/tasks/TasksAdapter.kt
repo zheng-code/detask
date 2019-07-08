@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.adapters.tasks
 
 import android.content.Context
 import android.support.v7.app.AlertDialog
@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.zhengcode.detask.R
+import com.zhengcode.detask.models.OfferedTask
+import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class TasksAdapter(val context: Context, private val offered_tasks: List<OfferedTask>) : RecyclerView.Adapter<TasksAdapter.MyViewHolder>(){

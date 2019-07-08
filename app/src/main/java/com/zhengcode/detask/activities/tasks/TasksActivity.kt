@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.activities.tasks
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
 import com.google.firebase.database.*
+import com.zhengcode.detask.models.OfferedTask
+import com.zhengcode.detask.R
+import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
+import com.zhengcode.detask.adapters.tasks.TasksAdapter
+import com.zhengcode.detask.activities.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.activity_tasks.*
 
 class TasksActivity : AppCompatActivity() {

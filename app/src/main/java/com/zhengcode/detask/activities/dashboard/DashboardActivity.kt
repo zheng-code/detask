@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.activities.dashboard
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import com.zhengcode.detask.*
+import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
+import com.zhengcode.detask.activities.tasks.TasksActivity
+import com.zhengcode.detask.utils.showToast
 
 class DashboardActivity : AppCompatActivity(), View.OnClickListener {
     /*
@@ -27,22 +31,22 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.edit_profile)}")
             }
-            R.id.btn_skills-> {
+            R.id.btn_skills -> {
                 val intent = Intent(this, DashboardSkillsActivity::class.java)
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.skills)}")
             }
-            R.id.btn_traits-> {
+            R.id.btn_traits -> {
                 val intent = Intent(this, DashboardTraitsActivity::class.java)
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.traits)}")
             }
-            R.id.btn_task_history-> {
+            R.id.btn_task_history -> {
                 val intent = Intent(this, DashboardTaskHistoryActivity::class.java)
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.task_history)}")
             }
-            R.id.btn_settings-> {
+            R.id.btn_settings -> {
                 val intent = Intent(this, DashboardSettingsActivity::class.java)
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.settings)}")

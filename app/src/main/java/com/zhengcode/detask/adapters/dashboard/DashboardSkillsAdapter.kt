@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.adapters.dashboard
 
 import android.content.Context
 import android.content.Intent
@@ -6,11 +6,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.zhengcode.detask.R
+import com.zhengcode.detask.models.SkillStub
+import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.list_item.view.*
 
-// they are all still tasks because they are a task item in the task history
-class DashboardTaskHistoryAdapter(val context: Context, private val hobbies: List<Task>) :
-    RecyclerView.Adapter<DashboardTaskHistoryAdapter.MyViewHolder>(){
+class DashboardSkillsAdapter(val context: Context, private val skillStubs: List<SkillStub>) :
+    RecyclerView.Adapter<DashboardSkillsAdapter.MyViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // It is responsible for creating the ViewHolder, which is the each item in the list
         val view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
@@ -18,36 +20,36 @@ class DashboardTaskHistoryAdapter(val context: Context, private val hobbies: Lis
     }
 
     override fun getItemCount(): Int {
-        return hobbies.size
+        return skillStubs.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         // responsible for binding all data to all the
         // views that are created
-        val task = hobbies[position]
-        holder.setData(task, position)
+        val skillStub = skillStubs[position]
+        holder.setData(skillStub, position)
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         // I think this is adding properties to the class
-        var currentTask: Task? = null
+        var currentSkillStub: SkillStub? = null
         var currentPosition: Int = 0
 
         init {
             // itemView obtained from the parameter
             itemView.setOnClickListener {
-                // observer that you use currentTask, and this is a property
+                // observer that you use currentSkillStub, and this is a property
                 // of the class
-                currentTask?.let {
-                    context.showToast(currentTask!!.name + " Clicked !")
+                currentSkillStub?.let {
+                    context.showToast(currentSkillStub!!.name + " Clicked !")
                 }
             }
 
             // essentially this is the same code as before for sharing!
             itemView.imgShare.setOnClickListener {
-                currentTask?.let {
-                    val message: String = "My task is: " + currentTask!!.name
+                currentSkillStub?.let {
+                    val message: String = "My skillStub is: " + currentSkillStub!!.name
 
                     val intent = Intent()
                     intent.action = Intent.ACTION_SEND
@@ -60,10 +62,10 @@ class DashboardTaskHistoryAdapter(val context: Context, private val hobbies: Lis
             }
         }
 
-        fun setData(task: Task, pos: Int) {
-            itemView.txvTitle.text = task.name
+        fun setData(skillStub: SkillStub, pos: Int) {
+            itemView.txvTitle.text = skillStub.name
 
-            this.currentTask = task
+            this.currentSkillStub = skillStub
             this.currentPosition = pos
         }
     }

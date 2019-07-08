@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.models
 
 
 class OfferedTask(val offer: Double, val title: String, val description: String,

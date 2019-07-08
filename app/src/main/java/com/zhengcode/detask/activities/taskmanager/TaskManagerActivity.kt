@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.activities.taskmanager
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.database.*
+import com.zhengcode.detask.models.OfferedTask
+import com.zhengcode.detask.R
+import com.zhengcode.detask.activities.dashboard.DashboardActivity
+import com.zhengcode.detask.activities.tasks.TasksActivity
 
 
 class TaskManagerActivity : AppCompatActivity() {

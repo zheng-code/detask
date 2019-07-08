@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.adapters.dashboard
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.zhengcode.detask.R
+import com.zhengcode.detask.models.TraitStub
+import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class DashboardTraitsAdapter(val context: Context, private val traitStubs: List<TraitStub>) :

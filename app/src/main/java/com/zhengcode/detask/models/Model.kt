@@ -1,4 +1,4 @@
-package com.zhengcode.detask
+package com.zhengcode.detask.models
 
 data class Task(var name: String)
 data class SkillStub(var name: String)
