@@ -5,7 +5,7 @@
                 android:layout_height="match_parent"
                 android:background="#008577"
                 android:orientation="vertical"
-                tools:context=".activities.MainActivity"
+                tools:context=".activities.RegisterActivity"
                 android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <RelativeLayout
@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:gravity="center_horizontal"
-                android:text="@string/sign_in_page"
+                android:text="@string/registration_page"
                 android:textColor="#fff"
                 android:textSize="26sp"
                 android:textStyle="bold"/>
@@ -79,33 +79,41 @@
                         android:hint="@string/password"
                         android:inputType="textPassword"/>
 
-
                 <TextView
-                        android:id="@+id/text_view_forget_password"
+                        android:labelFor="@id/edit_text_confirm_password"
+                        android:text="@string/confirm_password"
+                        android:fontFamily="sans-serif-light"
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <EditText
+                        android:drawablePadding="10dp"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:paddingTop="5dp"
-                        android:text="@string/forgot_password"/>
+                        android:singleLine="true"
+                        android:id="@+id/edit_text_confirm_password"
+                        android:drawableLeft="@drawable/ic_lock"
+                        android:hint="@string/confirm_password"
+                        android:inputType="textPassword"/>
 
 
                 <Button
-                        android:id="@+id/button_sign_in"
+                        android:id="@+id/button_register"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="22dp"
                         android:background="#d67601"
-                        android:text="@string/sign_in"
+                        android:text="@string/sign_up"
                         android:textAllCaps="false"
                         android:textColor="#fff"
                         android:textSize="18sp"/>
 
                 <TextView
-                        android:id="@+id/text_view_register"
+                        android:id="@+id/text_view_login"
                         android:layout_gravity="center_horizontal"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                         android:textAlignment="center"
-                        android:text="@string/dont_have_an_account"
+                        android:text="@string/already_have_an_account"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
             </LinearLayout>

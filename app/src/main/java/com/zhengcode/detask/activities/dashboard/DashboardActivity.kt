@@ -3,16 +3,22 @@ package com.zhengcode.detask.activities.dashboard
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import com.google.firebase.auth.FirebaseAuth
 import com.zhengcode.detask.*
 import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
 import com.zhengcode.detask.activities.tasks.TasksActivity
+import com.zhengcode.detask.utils.logout
 import com.zhengcode.detask.utils.showToast
+import kotlinx.android.synthetic.main.activity_dashboard.*
 
 class DashboardActivity : AppCompatActivity(), View.OnClickListener {
+    private val currentUser = FirebaseAuth.getInstance().currentUser
+
     /*
     There are multiple buttons in this Activity, therefore to reduce
     unnecessary instantiation of anonymous inner classes of OnClickListener,
@@ -51,6 +57,21 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.settings)}")
             }
+            R.id.btn_sign_out -> {
+                AlertDialog.Builder(this).apply {
+                    setTitle("Are you sure?")
+                    /* _, _ means that you are not gonna use the parameters,
+                       technically you can use the parameter names but you are gonna
+                       get warnings that you are not using the parameter
+                    */
+                    setPositiveButton("Yes") { _, _ ->
+                        FirebaseAuth.getInstance().signOut()
+                        logout()
+                    }
+                    setNegativeButton("Cancel") { _, _ ->
+                    }
+                }.create().show()
+            }
         }
     }
 
@@ -77,6 +98,7 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
         val btnTraits: Button = findViewById(R.id.btn_traits)
         val btnTaskHistory: Button = findViewById(R.id.btn_task_history)
         val btnSettings: Button = findViewById(R.id.btn_settings)
+        val btnSignOut: Button = findViewById(R.id.btn_sign_out)
 
         btnCurrentTask.setOnClickListener(this)
         btnEditProfile.setOnClickListener(this)
@@ -84,6 +106,7 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
         btnTraits.setOnClickListener(this)
         btnTaskHistory.setOnClickListener(this)
         btnSettings.setOnClickListener(this)
+        btnSignOut.setOnClickListener(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,6 +119,10 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
         menuItem.isChecked = true
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        currentUser?.let { user ->
+            dashboard_username.text = user.displayName
+        }
 
         setClickListeners()
     }

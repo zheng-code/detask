@@ -1,8 +1,11 @@
 <resources>
+    # App-wide
     <string name="app_name">detask</string>
     <string name="title_tasks">Tasks</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_task_manager">Task Manager</string>
+
+    # Task Manager
     <string name="task_manager_offer_caption">Offer an amount for completion:</string>
     <string name="task_manager_offer_input">Offer (SGD)</string>
     <string name="task_manager_title_caption">Write a title for your task:</string>
@@ -15,12 +18,23 @@
     <string name="task_manager_date_caption">Required completion date:</string>
     <string name="task_manager_date_input">Date (yyyymmdd)</string>
     <string name="task_manager_submit_button">Submit</string>
+
+    # Dashboard
     <string name="current_tasks">Current Tasks</string>
+
+    ## Edit Profile
     <string name="edit_profile">Edit Profile</string>
+    <string name="not_verified">Not Verified</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="enter_name">Enter Name</string>
+
     <string name="skills">Skills</string>
     <string name="traits">Traits</string>
     <string name="task_history">Task History</string>
     <string name="settings">Settings</string>
+    <string name="sign_out">Sign out</string>
+
+    # Task View
     <string name="task_view_button">View</string>
     <string name="accept_task_button">Accept Task</string>
     <string name="message_user_button">Message</string>
@@ -29,5 +43,19 @@
     <string name="task_view_offer_caption">Offer</string>
     <string name="task_view_location_caption">Location</string>
     <string name="task_view_date_caption">Need-by date</string>
+
+    # User Authentication
+    <string name="email">E-mail</string>
+    <string name="email_hint">zhengcode@gmail.com</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="registration_page">New User Registration</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account">Already have an account?\nLogin Here</string>
+    <string name="sign_in_page">Account Sign In</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_an_account">Don\'t have an account?\nRegister Here</string>
+
 
 </resources>

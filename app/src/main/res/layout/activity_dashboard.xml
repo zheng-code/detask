@@ -18,6 +18,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:menu="@menu/bottom_nav_menu"/>
     <TextView
+            android:hint="(Enter name in Edit Profile)"
             android:text="John Doe"
             android:textSize="20sp"
             android:layout_width="0dp"
@@ -77,6 +78,14 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_skills" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"/>
+    <Button
+            android:text="@string/sign_out"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_sign_out"
+            app:layout_constraintTop_toBottomOf="@+id/btn_settings" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"/>
 
 </android.support.constraint.ConstraintLayout>
 
