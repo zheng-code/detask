@@ -80,6 +80,7 @@ class TasksActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 if (p0.exists()) {
+                    taskList.clear()
                     for (h in p0.children) {
                         val tasknow = h.getValue(OfferedTask::class.java)
                         taskList.add(tasknow!!)

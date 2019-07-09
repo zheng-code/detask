@@ -29,7 +29,9 @@
         <activity android:name=".activities.dashboard.DashboardCurrentTasksActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardEditProfileActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardSkillsActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardUpdateSkillsActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardTraitsActivity"></activity>
+        <activity android:name=".activities.dashboard.DashboardUpdateTraitsActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardTaskHistoryActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardSettingsActivity"></activity>
         <activity android:name=".activities.tasks.ViewTaskActivity"></activity>

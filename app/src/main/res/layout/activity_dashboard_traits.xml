@@ -1,31 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activities.MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_artist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context=".activities.dashboard.DashboardTraitsActivity">
 
-    <android.support.design.widget.BottomNavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="0dp"
+    <TextView
+            android:id="@+id/textViewArtist"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <EditText
+            android:layout_below="@id/textViewArtist"
+            android:id="@+id/editTextTraitName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu"/>
+            android:hint="Enter Trait Name" />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextTraitName">
+
+        <TextView
+                android:text="1"
+                android:id="@+id/textViewRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <Button
+            android:id="@+id/buttonAddTrait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:text="Add" />
+
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonAddTrait"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="Traits"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/dashboard_traits_recycler_view"
+            android:id="@+id/recyclerViewTraits"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/nav_view" app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintVertical_bias="0.0" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+            android:layout_below="@id/textView"/>
 
+</RelativeLayout>

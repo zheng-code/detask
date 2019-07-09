@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Patterns
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.dashboard.DashboardActivity
+import com.zhengcode.detask.models.User
 import com.zhengcode.detask.utils.login
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.activity_register.*
@@ -66,6 +68,21 @@ class RegisterActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Registration success
                     // util
+                    val user = User(email)
+
+                    FirebaseAuth.getInstance().currentUser?.uid?.let {
+                        FirebaseDatabase.getInstance().getReference("users")
+                            .child(it)
+                            .setValue(user)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    showToast("Registration Success")
+                                } else {
+                                    showToast("Registration no success")
+                                }
+                            }
+                    }
+
                     login()
                 } else {
                     task.exception?.message?.let {

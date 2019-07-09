@@ -1,53 +1,100 @@
 package com.zhengcode.detask.activities.dashboard
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.MenuItem
+import android.text.TextUtils
+import android.util.Log
+import android.widget.EditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.zhengcode.detask.adapters.dashboard.DashboardSkillsAdapter
 import com.zhengcode.detask.R
-import com.zhengcode.detask.models.Supplier
-import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
+import com.zhengcode.detask.models.Skill
+import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.activity_dashboard_skills.*
 
 class DashboardSkillsActivity: AppCompatActivity() {
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_dashboard -> {
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.navigation_tasks -> {
-            }
-            R.id.navigation_task_manager -> {
-                val intent = Intent(this, TaskManagerActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        false
-    }
-    private fun setupRecycleView() {
-        val layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-        dashboard_skills_recycler_view.layoutManager = layoutManager
+    private lateinit var editTextSkillName: EditText
 
-        val adapter = DashboardSkillsAdapter(this, Supplier.skillStubs)
-        dashboard_skills_recycler_view.adapter = adapter
-    }
+    private lateinit var databaseSkills: DatabaseReference
+
+    lateinit var skills: MutableList<Skill>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard_skills)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        editTextSkillName = findViewById(R.id.editTextSkillName)
+        skills = ArrayList()
 
-        // when this Activity is created, check its corresponding menuItem
-        val menuItem: MenuItem = navView.menu.getItem(0)
-        menuItem.isChecked = true
+        /* Design: Each user has a "skills" node and the skills you input will be added
+        to this particular node
+        */
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        userId?.let {
+            databaseSkills = FirebaseDatabase
+                .getInstance()
+                .getReference("users")
+                .child(it)
+                .child("skills")
+        }
 
-        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        buttonAddSkill.setOnClickListener {
+            saveSkill()
+        }
 
-        setupRecycleView()
+        // Section that creates list of tasks taskList and displays them ///////////
+        skills = mutableListOf()
+
+
+        databaseSkills.addValueEventListener(object : ValueEventListener {
+
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    skills.clear()
+                    for (skillSnapshot in dataSnapshot.children) {
+                        val skill= skillSnapshot.getValue(Skill::class.java)
+                        skill?.let {
+                            skills.add(it)
+                        }
+                        Log.d("DashboardSkillsActivity", "Inside enhanced for loop: " + skillSnapshot)
+                    }
+
+                    setupRecycleView()
+                }
+            }
+        })
+    }
+
+    private fun setupRecycleView() {
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        recyclerViewSkills.layoutManager = layoutManager
+
+        val adapter = DashboardSkillsAdapter(this, skills)
+        recyclerViewSkills.adapter = adapter
+        Log.i("TasksActivity", "Number of items: ${skills.size}")
+
+    }
+
+    private fun saveSkill() {
+        val skillName = editTextSkillName.text.toString().trim()
+        if (!TextUtils.isEmpty(skillName)) {
+            val skillId = databaseSkills.push().key
+
+            val skill = Skill(skillName, skillId)
+
+            skillId?.let {
+                databaseSkills.child(skillId).setValue(skill)
+                showToast("Skill successfully added")
+            }
+
+        } else {
+            showToast("Adding of skill is unsuccessful")
+        }
     }
 }

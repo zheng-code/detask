@@ -5,49 +5,90 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.text.TextUtils
 import android.view.MenuItem
+import android.widget.EditText
+import com.google.firebase.database.*
 import com.zhengcode.detask.adapters.dashboard.DashboardTraitsAdapter
 import com.zhengcode.detask.R
 import com.zhengcode.detask.models.Supplier
 import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
+import com.zhengcode.detask.models.Trait
+import com.zhengcode.detask.utils.Constants
+import com.zhengcode.detask.utils.showToast
+import kotlinx.android.synthetic.main.activity_dashboard_skills.*
 import kotlinx.android.synthetic.main.activity_dashboard_traits.*
 
 class DashboardTraitsActivity: AppCompatActivity() {
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_dashboard -> {
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.navigation_tasks -> {
-            }
-            R.id.navigation_task_manager -> {
-                val intent = Intent(this, TaskManagerActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        false
-    }
+    private lateinit var editTextTraitName: EditText
+
+    private lateinit var databaseTraits: DatabaseReference
+
+    lateinit var traits: MutableList<Trait>
+
     private fun setupRecycleView() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-        dashboard_traits_recycler_view.layoutManager = layoutManager
+        recyclerViewTraits.layoutManager = layoutManager
 
-        val adapter = DashboardTraitsAdapter(this, Supplier.traitStubs)
-        dashboard_traits_recycler_view.adapter = adapter
+        val adapter = DashboardTraitsAdapter(this, traits)
+        recyclerViewTraits.adapter = adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard_traits)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        editTextTraitName = findViewById(R.id.editTextTraitName)
+        traits = ArrayList()
 
-        // when this Activity is created, check its corresponding menuItem
-        val menuItem: MenuItem = navView.menu.getItem(0)
-        menuItem.isChecked = true
+        Constants.getCurrentUserUid()?.let {
+            databaseTraits = FirebaseDatabase
+                .getInstance()
+                .getReference("users")
+                .child(it)
+                .child("traits")
+        }
 
-        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        buttonAddTrait.setOnClickListener {
+            saveTrait()
+        }
 
-        setupRecycleView()
+        traits = mutableListOf()
+
+        databaseTraits.addValueEventListener(object: ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    traits.clear()
+                    for (traitSnapshot in dataSnapshot.children) {
+                        val trait = traitSnapshot.getValue(Trait::class.java)
+                        trait?.let {
+                            traits.add(it)
+                        }
+                    }
+
+                    setupRecycleView()
+                }
+            }
+
+        })
+    }
+
+    private fun saveTrait() {
+        val traitName = editTextTraitName.text.toString().trim()
+        if (!TextUtils.isEmpty(traitName)) {
+            val traitId = databaseTraits.push().key
+            val trait = Trait(traitName, traitId)
+
+            traitId?.let {
+                databaseTraits.child(traitId).setValue(trait)
+                showToast("Trait successfully added")
+            }
+        } else {
+            showToast("Adding of trait is unsuccessful")
+        }
     }
 }
