@@ -32,6 +32,7 @@
         <activity android:name=".activities.dashboard.DashboardTraitsActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardTaskHistoryActivity"></activity>
         <activity android:name=".activities.dashboard.DashboardSettingsActivity"></activity>
+        <activity android:name=".activities.tasks.ViewTaskActivity"></activity>
     </application>
 
 </manifest>

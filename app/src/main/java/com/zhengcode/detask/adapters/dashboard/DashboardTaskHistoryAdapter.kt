@@ -48,19 +48,19 @@ class DashboardTaskHistoryAdapter(val context: Context, private val hobbies: Lis
             }
 
             // essentially this is the same code as before for sharing!
-            itemView.imgShare.setOnClickListener {
-                currentTask?.let {
-                    val message: String = "My task is: " + currentTask!!.name
-
-                    val intent = Intent()
-                    intent.action = Intent.ACTION_SEND
-                    intent.putExtra(Intent.EXTRA_TEXT, message)
-                    intent.type = "text/plain"
-
-                    // context is required because startActivity method is in there
-                    context.startActivity(Intent.createChooser(intent, "Share to: "))
-                }
-            }
+//            itemView.imgShare.setOnClickListener {
+//                currentTask?.let {
+//                    val message: String = "My task is: " + currentTask!!.name
+//
+//                    val intent = Intent()
+//                    intent.action = Intent.ACTION_SEND
+//                    intent.putExtra(Intent.EXTRA_TEXT, message)
+//                    intent.type = "text/plain"
+//
+//                    // context is required because startActivity method is in there
+//                    context.startActivity(Intent.createChooser(intent, "Share to: "))
+//                }
+//            }
         }
 
         fun setData(task: Task, pos: Int) {

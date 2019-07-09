@@ -47,19 +47,19 @@ class DashboardTraitsAdapter(val context: Context, private val traitStubs: List<
             }
 
             // essentially this is the same code as before for sharing!
-            itemView.imgShare.setOnClickListener {
-                currentTraitStub?.let {
-                    val message: String = "My traitStub is: " + currentTraitStub!!.name
-
-                    val intent = Intent()
-                    intent.action = Intent.ACTION_SEND
-                    intent.putExtra(Intent.EXTRA_TEXT, message)
-                    intent.type = "text/plain"
-
-                    // context is required because startActivity method is in there
-                    context.startActivity(Intent.createChooser(intent, "Share to: "))
-                }
-            }
+//            itemView.imgShare.setOnClickListener {
+//                currentTraitStub?.let {
+//                    val message: String = "My traitStub is: " + currentTraitStub!!.name
+//
+//                    val intent = Intent()
+//                    intent.action = Intent.ACTION_SEND
+//                    intent.putExtra(Intent.EXTRA_TEXT, message)
+//                    intent.type = "text/plain"
+//
+//                    // context is required because startActivity method is in there
+//                    context.startActivity(Intent.createChooser(intent, "Share to: "))
+//                }
+//            }
         }
 
         fun setData(traitStub: TraitStub, pos: Int) {
