@@ -42,13 +42,28 @@
                 card_view:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
         <TextView
                 android:text="TextView"
-                android:layout_width="78dp"
-                android:layout_height="22dp"
+                android:layout_width="110dp"
+                android:layout_height="44dp"
                 android:id="@+id/txvOffer" android:textStyle="bold"
-                android:layout_marginTop="8dp" card_view:layout_constraintTop_toTopOf="parent"
-                android:layout_marginEnd="48dp" card_view:layout_constraintEnd_toEndOf="parent"
-                android:textSize="18sp" android:layout_marginBottom="77dp"
+                android:layout_marginEnd="32dp" card_view:layout_constraintEnd_toEndOf="parent"
+                android:textSize="24sp"
                 card_view:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txvUsername"
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="12dp" android:layout_marginStart="56dp"
+                card_view:layout_constraintStart_toEndOf="@+id/txvTitle" android:textSize="18sp"/>
+        <TextView
+                android:text="@string/is_offering"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txv_isoffering"
+                android:layout_marginTop="12dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/txvUsername" android:layout_marginStart="24dp"
+                card_view:layout_constraintStart_toEndOf="@+id/txvdescription"/>
 
     </android.support.constraint.ConstraintLayout>
 

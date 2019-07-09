@@ -59,6 +59,8 @@ class TasksAdapter(val context: Context, private val offered_tasks: List<Offered
                 intent.putExtra("locationx", currentTask?.locationx)
                 intent.putExtra("locationy", currentTask?.locationy)
                 intent.putExtra("date", currentTask?.date)
+                intent.putExtra("username", currentTask?.username)
+                intent.putExtra("taskID", currentTask?.taskid)
                 itemView.context.startActivity(intent)
             }
 
@@ -69,6 +71,7 @@ class TasksAdapter(val context: Context, private val offered_tasks: List<Offered
             itemView.txvdescription.text = task.description
             val offer = "$" + task.offer.toString()
             itemView.txvOffer.text = offer
+            itemView.txvUsername.text = task.username
 
             this.currentTask = task
             this.currentPosition = pos

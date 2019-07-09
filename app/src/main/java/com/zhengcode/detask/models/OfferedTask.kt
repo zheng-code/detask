@@ -1,10 +1,16 @@
 package com.zhengcode.detask.models
 
+import com.zhengcode.detask.utils.TaskStatus
+
 
 class OfferedTask(val offer: Double, val title: String, val description: String,
-                val locationx: Double, val locationy: Double, val date: String) {
+                  val locationx: Double, val locationy: Double, val date: String,
+                  val username: String?, val taskStatus: TaskStatus, val taskid: String) {
 
-    constructor() : this(0.0, "", "", 0.0, 0.0, ""){}
+    constructor() : this(0.0, "", "", 0.0,
+                        0.0, "", "", TaskStatus.WAITING, ""){}
+
+
 
 }
 

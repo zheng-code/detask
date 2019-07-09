@@ -8,16 +8,19 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.dashboard.DashboardActivity
 import com.zhengcode.detask.activities.tasks.TasksActivity
+import com.zhengcode.detask.utils.TaskStatus
 
 
 class TaskManagerActivity : AppCompatActivity() {
 
     var database = FirebaseDatabase.getInstance()
+    private val currentUser = FirebaseAuth.getInstance().currentUser
     lateinit var offer_input: EditText
     lateinit var title_input: EditText
     lateinit var description_input: EditText
@@ -25,7 +28,6 @@ class TaskManagerActivity : AppCompatActivity() {
     lateinit var location_y_coordinate: EditText
     lateinit var date_input: EditText
     lateinit var submit_button: Button
-
 
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -67,11 +69,14 @@ class TaskManagerActivity : AppCompatActivity() {
             val locationx = location_x_coordinate.text.toString().trim().toDouble()
             val locationy = location_y_coordinate.text.toString().trim().toDouble()
             val date = date_input.text.toString().trim()
+            val username = currentUser?.displayName
 
-            val task = OfferedTask(offer, title, description, locationx, locationy, date)
             val databaseRef = database.getReference("task")
-            databaseRef.push().setValue(task)
             val taskId = databaseRef.push().key.toString()
+            val task = OfferedTask(offer, title, description, locationx, locationy,
+                date, username, TaskStatus.WAITING, taskId)
+            databaseRef.child(taskId).setValue(task)
+
 
 
             databaseRef.child(taskId).setValue(task).addOnCompleteListener {
