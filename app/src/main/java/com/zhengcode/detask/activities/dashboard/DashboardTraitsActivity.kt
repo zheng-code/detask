@@ -14,7 +14,7 @@ import com.zhengcode.detask.R
 import com.zhengcode.detask.models.Supplier
 import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
 import com.zhengcode.detask.models.Trait
-import com.zhengcode.detask.utils.Constants
+import com.zhengcode.detask.utils.Helpers
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.activity_dashboard_skills.*
 import kotlinx.android.synthetic.main.activity_dashboard_traits.*
@@ -41,7 +41,7 @@ class DashboardTraitsActivity: AppCompatActivity() {
         editTextTraitName = findViewById(R.id.editTextTraitName)
         traits = ArrayList()
 
-        Constants.getCurrentUserUid()?.let {
+        Helpers.getCurrentUserUid()?.let {
             databaseTraits = FirebaseDatabase
                 .getInstance()
                 .getReference("users")

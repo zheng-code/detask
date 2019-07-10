@@ -9,7 +9,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.zhengcode.detask.R
 import com.zhengcode.detask.models.Skill
-import com.zhengcode.detask.utils.Constants
+import com.zhengcode.detask.utils.Helpers
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.update_dialog.*
 
@@ -45,7 +45,7 @@ class DashboardUpdateSkillsActivity : AppCompatActivity() {
     }
 
     private fun deleteSkill(skillId: String) {
-        val databaseReference: DatabaseReference? = Constants.getCurrentUserUid()?.let {
+        val databaseReference: DatabaseReference? = Helpers.getCurrentUserUid()?.let {
             FirebaseDatabase
                 .getInstance()
                 .getReference("users")
@@ -60,7 +60,7 @@ class DashboardUpdateSkillsActivity : AppCompatActivity() {
     }
 
     private fun updateSkill(updatedSkillName: String, skillId: String) {
-        val databaseReference: DatabaseReference? = Constants.getCurrentUserUid()?.let {
+        val databaseReference: DatabaseReference? = Helpers.getCurrentUserUid()?.let {
             FirebaseDatabase
                 .getInstance()
                 .getReference("users")
