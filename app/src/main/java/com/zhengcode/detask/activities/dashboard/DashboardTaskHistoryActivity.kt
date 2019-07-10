@@ -6,13 +6,20 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
+import com.google.firebase.database.*
 import com.zhengcode.detask.R
 import com.zhengcode.detask.models.Supplier
 import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
 import com.zhengcode.detask.adapters.dashboard.DashboardTaskHistoryAdapter
+import com.zhengcode.detask.models.OfferedTask
+import com.zhengcode.detask.utils.Helpers
 import kotlinx.android.synthetic.main.activity_dashboard_task_history.*
 
 class DashboardTaskHistoryActivity : AppCompatActivity() {
+
+    lateinit var taskList: MutableList<OfferedTask>
+    lateinit var ref : DatabaseReference
+
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_dashboard -> {
@@ -33,7 +40,7 @@ class DashboardTaskHistoryActivity : AppCompatActivity() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         dashboard_task_history_recycler_view.layoutManager = layoutManager
 
-        val adapter = DashboardTaskHistoryAdapter(this, Supplier.tasks)
+        val adapter = DashboardTaskHistoryAdapter(this, taskList)
         dashboard_task_history_recycler_view.adapter = adapter
     }
 
@@ -48,6 +55,33 @@ class DashboardTaskHistoryActivity : AppCompatActivity() {
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
-        setupRecycleView()
+        taskList = mutableListOf()
+        val ref = Helpers.getCurrentUserUid()?.let {
+            FirebaseDatabase
+                .getInstance()
+                .getReference("users")
+                .child(it)
+                .child("taskHistory")
+        }
+
+
+        ref?.addValueEventListener(object : ValueEventListener {
+
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0.exists()) {
+                    taskList.clear()
+                    for (h in p0.children) {
+                        val tasknow = h.getValue(OfferedTask::class.java)
+                        taskList.add(tasknow!!)
+                    }
+
+                    setupRecycleView()
+                }
+            }
+        })
     }
 }

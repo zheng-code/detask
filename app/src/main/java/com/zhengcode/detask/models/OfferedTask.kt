@@ -5,10 +5,12 @@ import com.zhengcode.detask.utils.TaskStatus
 
 class OfferedTask(val offer: Double, val title: String, val description: String,
                   val locationx: Double, val locationy: Double, val date: String,
-                  val username: String?, val taskStatus: TaskStatus, val taskid: String) {
+                  val username: String?, val taskStatus: TaskStatus, val taskid: String,
+                  val requestorId: String?) {
 
     constructor() : this(0.0, "", "", 0.0,
-                        0.0, "", "", TaskStatus.WAITING, ""){}
+                        0.0, "", "", TaskStatus.WAITING, "",
+                        ""){}
 
 
 

@@ -14,6 +14,7 @@ import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.dashboard.DashboardActivity
 import com.zhengcode.detask.activities.tasks.TasksActivity
+import com.zhengcode.detask.utils.Helpers
 import com.zhengcode.detask.utils.TaskStatus
 
 
@@ -73,9 +74,19 @@ class TaskManagerActivity : AppCompatActivity() {
 
             val databaseRef = database.getReference("task")
             val taskId = databaseRef.push().key.toString()
+            val requestorId = Helpers.getCurrentUserUid()
+
+            val requestorDbRef = requestorId?.let { it ->
+                database
+                    .getReference("users")
+                    .child(it)
+                    .child("taskHistory")
+            }
+
             val task = OfferedTask(offer, title, description, locationx, locationy,
-                date, username, TaskStatus.WAITING, taskId)
+                date, username, TaskStatus.WAITING, taskId, requestorId)
             databaseRef.child(taskId).setValue(task)
+            requestorDbRef?.child(taskId)?.setValue(task)
 
 
 
@@ -83,6 +94,7 @@ class TaskManagerActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Task successfully submitted: $title", Toast.LENGTH_LONG).show()
 
             }
+
 
 
         }
