@@ -40,7 +40,7 @@ class DashboardTraitsActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard_traits)
         editTextTraitName = findViewById(R.id.editTextTraitName)
-        traits = ArrayList()
+        traits = arrayListOf()
 
         Helpers.getCurrentUserUid()?.let {
             databaseTraits = FirebaseDatabase

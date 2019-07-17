@@ -23,7 +23,7 @@ class ViewTaskActivity : AppCompatActivity() {
 
         //Take all the data in the selected task and put in the task_view_page
         val offer: Double = intent.getDoubleExtra("offer", 0.0)
-        task_view_offer.text = "$${offer}"
+        task_view_offer.text = "$" + offer.toString()
 
         val title: String = intent.getStringExtra("title")
         task_view_title.text = title

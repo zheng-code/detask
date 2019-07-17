@@ -10,6 +10,7 @@ import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.tasks.ViewTaskActivity
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.utils.showToast
+import kotlinx.android.synthetic.main.item_recycler.view.*
 import kotlinx.android.synthetic.main.list_item.view.*
 
 // they are all still tasks because they are a task item in the task history
@@ -17,7 +18,7 @@ class DashboardCurrentTasksAdapter(val context: Context, private val offeredTask
     RecyclerView.Adapter<DashboardCurrentTasksAdapter.MyViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         // It is responsible for creating the ViewHolder, which is the each item in the list
-        val view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_recycler, parent, false)
         return MyViewHolder(view)
     }
 
@@ -64,7 +65,7 @@ class DashboardCurrentTasksAdapter(val context: Context, private val offeredTask
 
         fun setData(task: OfferedTask, pos: Int) {
             itemView.txvTitle.text = task.title
-            itemView.txvdescription.text = task.description
+            itemView.txvDescription.text = task.description
             val offer = "$" + task.offer.toString()
             itemView.txvOffer.text = offer
             itemView.txvUsername.text = task.username
