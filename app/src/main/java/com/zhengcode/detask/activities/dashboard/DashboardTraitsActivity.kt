@@ -2,12 +2,13 @@ package com.zhengcode.detask.activities.dashboard
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.text.TextUtils
 import android.view.MenuItem
 import android.widget.EditText
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.zhengcode.detask.adapters.dashboard.DashboardTraitsAdapter
 import com.zhengcode.detask.R
@@ -28,7 +29,7 @@ class DashboardTraitsActivity: AppCompatActivity() {
 
     private fun setupRecycleView() {
         val layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.orientation = RecyclerView.VERTICAL
         recyclerViewTraits.layoutManager = layoutManager
 
         val adapter = DashboardTraitsAdapter(this, traits)

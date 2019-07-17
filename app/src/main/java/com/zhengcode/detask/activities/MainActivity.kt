@@ -2,8 +2,8 @@ package com.zhengcode.detask.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Patterns
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth

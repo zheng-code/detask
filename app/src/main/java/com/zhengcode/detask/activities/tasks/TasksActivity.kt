@@ -2,11 +2,12 @@ package com.zhengcode.detask.activities.tasks
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.R
@@ -41,7 +42,7 @@ class TasksActivity : AppCompatActivity() {
 
     private fun setupRecycleView() {
         val layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.orientation = RecyclerView.VERTICAL
         dashboard_task_history_recycler_view.layoutManager = layoutManager
 
         val adapter = TasksAdapter(this, taskList)
