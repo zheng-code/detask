@@ -38,6 +38,10 @@ class TasksAdapter(val context: Context, private val offered_tasks: List<Offered
         holder.setData(task, position)
     }
 
+    companion object {
+        val TASK_KEY = "TASK_KEY"
+    }
+
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         // I think this is adding properties to the class
@@ -54,15 +58,7 @@ class TasksAdapter(val context: Context, private val offered_tasks: List<Offered
                 }
 
                 val intent = Intent(context, ViewTaskActivity::class.java)
-                intent.putExtra("offer", currentTask?.offer)
-                intent.putExtra("title", currentTask?.title)
-                intent.putExtra("description", currentTask?.description)
-                intent.putExtra("locationx", currentTask?.locationx)
-                intent.putExtra("locationy", currentTask?.locationy)
-                intent.putExtra("date", currentTask?.date)
-                intent.putExtra("username", currentTask?.username)
-                intent.putExtra("taskID", currentTask?.taskid)
-                intent.putExtra("requestorId", currentTask?.requestorId)
+                intent.putExtra(TASK_KEY, currentTask)
                 itemView.context.startActivity(intent)
             }
 

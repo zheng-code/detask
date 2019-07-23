@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.zhengcode.detask">
-    <!--android:hardwareAccelerated ="true"-->
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -9,7 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
+        <activity android:name=".activities.messages.ChatLogActivity">
+        </activity>
         <activity
                 android:name=".activities.MainActivity"
                 android:label="@string/app_name">
@@ -18,23 +19,20 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
-        <activity android:name=".activities.RegisterActivity"></activity>
-
-        <activity android:name=".activities.dashboard.DashboardActivity"></activity>
-        <activity android:name=".activities.tasks.TasksActivity"></activity>
-        <activity android:name=".activities.taskmanager.TaskManagerActivity"></activity>
-
-        <activity android:name=".activities.dashboard.DashboardCurrentTasksActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardEditProfileActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardSkillsActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardUpdateSkillsActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardTraitsActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardUpdateTraitsActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardTaskHistoryActivity"></activity>
-        <activity android:name=".activities.dashboard.DashboardSettingsActivity"></activity>
-        <activity android:name=".activities.tasks.ViewTaskActivity"></activity>
+        <activity android:name=".activities.RegisterActivity"/>
+        <activity android:name=".activities.dashboard.DashboardActivity"/>
+        <activity android:name=".activities.tasks.TasksActivity"/>
+        <activity android:name=".activities.taskmanager.TaskManagerActivity"/>
+        <activity android:name=".activities.dashboard.DashboardCurrentTasksActivity"/>
+        <activity android:name=".activities.dashboard.DashboardEditProfileActivity"/>
+        <activity android:name=".activities.dashboard.DashboardSkillsActivity"/>
+        <activity android:name=".activities.dashboard.DashboardUpdateSkillsActivity"/>
+        <activity android:name=".activities.dashboard.DashboardTraitsActivity"/>
+        <activity android:name=".activities.dashboard.DashboardUpdateTraitsActivity"/>
+        <activity android:name=".activities.dashboard.DashboardTaskHistoryActivity"/>
+        <activity android:name=".activities.dashboard.DashboardSettingsActivity"/>
+        <activity android:name=".activities.tasks.ViewTaskActivity"/>
     </application>
 
 </manifest>

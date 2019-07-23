@@ -5,6 +5,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
+// For parcel extensions
+androidExtensions {
+    experimental = true
+}
+
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
@@ -39,4 +44,10 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    // Groupie makes Adapters simpler
+    implementation 'com.xwray:groupie:2.3.0'
+
+    // Let's Build That App from Youtube did this and so will I
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
