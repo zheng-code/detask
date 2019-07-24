@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
 import com.zhengcode.detask.R
+import com.zhengcode.detask.utils.Helpers
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.activity_dashboard_edit_profile.*
 
@@ -32,6 +34,7 @@ class DashboardEditProfileActivity : AppCompatActivity() {
 
         button_save.setOnClickListener {
             val name = edit_text_name.text.toString().trim()
+            val currentUserUid = Helpers.getCurrentUserUid()
 
             if (name.isEmpty()) {
                 edit_text_name.error = "Name required"
@@ -49,6 +52,10 @@ class DashboardEditProfileActivity : AppCompatActivity() {
                 ?.addOnCompleteListener {task ->
                     progressbar.visibility = View.INVISIBLE
                     if (task.isSuccessful) {
+                        val ref = FirebaseDatabase
+                            .getInstance()
+                            .getReference("/users/$currentUserUid/username")
+                        ref.setValue(name)
                         showToast("Profile Updated")
                     } else {
                         showToast(task.exception?.message!!)

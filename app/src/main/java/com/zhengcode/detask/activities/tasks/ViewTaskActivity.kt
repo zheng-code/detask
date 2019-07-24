@@ -125,6 +125,7 @@ class ViewTaskActivity : AppCompatActivity() {
             }
 
             val intent = Intent(this, ChatLogActivity::class.java)
+            // TODO: Change this putExtra to something simpler, so I can use DashboardChatsActivity
             intent.putExtra(TasksAdapter.TASK_KEY, currentTask)
             startActivity(intent)
         }

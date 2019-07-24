@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_edit_profile"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_current_tasks" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_chats" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0" android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>
     <Button
@@ -86,6 +86,14 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_settings" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"/>
+    <Button
+            android:text="Chats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_chats" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.547"
+            app:layout_constraintTop_toBottomOf="@+id/btn_current_tasks"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

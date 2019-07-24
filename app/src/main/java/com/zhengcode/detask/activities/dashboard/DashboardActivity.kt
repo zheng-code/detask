@@ -32,6 +32,10 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
                 showToast("Clicked on ${getString(R.string.current_tasks)}")
             }
+            R.id.btn_chats -> {
+                val intent = Intent(this, DashboardChatsActivity::class.java)
+                startActivity(intent)
+            }
             R.id.btn_edit_profile -> {
                 val intent = Intent(this, DashboardEditProfileActivity::class.java)
                 startActivity(intent)
@@ -93,6 +97,7 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setClickListeners() {
         val btnCurrentTask: Button = findViewById(R.id.btn_current_tasks)
+        val btnChats: Button = findViewById(R.id.btn_chats)
         val btnEditProfile: Button = findViewById(R.id.btn_edit_profile)
         val btnSkills: Button = findViewById(R.id.btn_skills)
         val btnTraits: Button = findViewById(R.id.btn_traits)
@@ -101,6 +106,7 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
         val btnSignOut: Button = findViewById(R.id.btn_sign_out)
 
         btnCurrentTask.setOnClickListener(this)
+        btnChats.setOnClickListener(this)
         btnEditProfile.setOnClickListener(this)
         btnSkills.setOnClickListener(this)
         btnTraits.setOnClickListener(this)

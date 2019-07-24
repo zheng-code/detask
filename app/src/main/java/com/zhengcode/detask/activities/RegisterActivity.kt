@@ -70,18 +70,30 @@ class RegisterActivity : AppCompatActivity() {
                     // util
                     val user = User(email)
 
+                    /* TODO: NEED SLIGHT REFACTORING HERE TO INCLUDE UID,
+                        OTHERWISE, GOING FROM DashboardChatActivity to ChatLogActivity
+                        WILL FAIL!!
+                     */
                     FirebaseAuth.getInstance().currentUser?.uid?.let {
                         FirebaseDatabase.getInstance().getReference("users")
                             .child(it)
                             .setValue(user)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
+                                    // Quick fix. Should integrate uid to the user model
+                                    val uid = FirebaseAuth.getInstance().currentUser?.uid!!
+                                    FirebaseDatabase
+                                        .getInstance()
+                                        .getReference("users/${uid}/uid")
+                                        .setValue(uid)
                                     showToast("Registration Success")
                                 } else {
                                     showToast("Registration no success")
                                 }
                             }
                     }
+
+
 
                     login()
                 } else {

@@ -24,6 +24,7 @@
         <activity android:name=".activities.dashboard.DashboardActivity"/>
         <activity android:name=".activities.tasks.TasksActivity"/>
         <activity android:name=".activities.taskmanager.TaskManagerActivity"/>
+        <activity android:name=".activities.dashboard.DashboardChatsActivity"/>
         <activity android:name=".activities.dashboard.DashboardCurrentTasksActivity"/>
         <activity android:name=".activities.dashboard.DashboardEditProfileActivity"/>
         <activity android:name=".activities.dashboard.DashboardSkillsActivity"/>
