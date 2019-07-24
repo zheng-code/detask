@@ -1,12 +1,12 @@
 package com.zhengcode.detask
 
-import androidx.test.InstrumentationRegistry
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.zhengcode.detask.activities.MainActivity
 
 import org.junit.Test
@@ -30,13 +30,7 @@ class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.zhengcode.detask", appContext.packageName)
-    }
-
-    @Test
-    fun testLaunch() {
-        //
-        onView(withId(R.id.message)).check(matches(withText("detask")))
     }
 }
