@@ -7,19 +7,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
 import com.zhengcode.detask.adapters.tasks.TasksAdapter
 import com.zhengcode.detask.activities.dashboard.DashboardActivity
+import com.zhengcode.detask.activities.maps.MapsActivity
+import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.activity_tasks.*
 
 class TasksActivity : AppCompatActivity() {
 
     lateinit var taskList: MutableList<OfferedTask>
     lateinit var ref : DatabaseReference
+    lateinit var fab : FloatingActionButton
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -57,15 +62,22 @@ class TasksActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        fab = findViewById<FloatingActionButton>(R.id.fab_map)
+
+        fab.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(v: View?) {
+                val intent = Intent(this@TasksActivity, MapsActivity::class.java)
+                startActivity(intent)
+                showToast("Map View")
+            }
+
+        })
 
         // when this Activity is created, check its corresponding menuItem
         val menuItem: MenuItem = navView.menu.getItem(1)
         menuItem.isChecked = true
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-
-
 
 
         // Section that creates list of tasks taskList and displays them ///////////

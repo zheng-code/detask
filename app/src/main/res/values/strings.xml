@@ -59,6 +59,7 @@
 
     # Task List
     <string name="is_offering">is offering</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

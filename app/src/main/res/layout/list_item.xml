@@ -9,16 +9,17 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_map"
-            android:layout_width="86dp"
-            android:layout_height="81dp"
-            android:layout_gravity="bottom|right"
+            android:layout_width="79dp"
+            android:layout_height="79dp"
+            android:layout_gravity="bottom|end"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:src="@android:drawable/ic_menu_mapmode"
             app:fabSize="normal" app:backgroundTint="#009688"/>
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_view"
             android:layout_width="match_parent"
             android:layout_height="218dp"/>
+
 
 </FrameLayout>

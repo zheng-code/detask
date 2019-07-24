@@ -10,12 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.zhengcode.detask.R
-import com.zhengcode.detask.activities.dashboard.DashboardCurrentTasksActivity
 import com.zhengcode.detask.activities.tasks.ViewTaskActivity
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.item_recycler.view.*
-import kotlinx.android.synthetic.main.list_item.view.*
 
 
 
