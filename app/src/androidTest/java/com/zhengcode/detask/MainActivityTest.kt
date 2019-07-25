@@ -28,7 +28,7 @@ class MainActivityTest {
 
     @Test
     fun mainActivityLoadsCorrectly() {
-        onView(withId(R.id.login_title)).check(matches(withText(R.string.sign_in_page)))
+        onView(withId(R.id.button_sign_in)).check(matches(isDisplayed()))
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.zhengcode.detask.activities.dashboard
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +10,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.zhengcode.detask.*
 import com.zhengcode.detask.activities.taskmanager.TaskManagerActivity
 import com.zhengcode.detask.activities.tasks.TasksActivity
+import com.zhengcode.detask.utils.Helpers
 import com.zhengcode.detask.utils.logout
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -125,7 +128,6 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
         menuItem.isChecked = true
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
         currentUser?.let { user ->
             dashboard_username.text = user.displayName
         }

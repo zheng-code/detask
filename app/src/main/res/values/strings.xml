@@ -51,11 +51,11 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="registration_page">New User Registration</string>
     <string name="sign_up">Sign Up</string>
-    <string name="already_have_an_account">Already have an account?\nLogin Here</string>
+    <string name="already_have_an_account">Already have an account? Login here</string>
     <string name="sign_in_page">Account Sign In</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="sign_in">Sign In</string>
-    <string name="dont_have_an_account">Don\'t have an account?\nRegister Here</string>
+    <string name="dont_have_an_account">Don\'t have an account? Register here</string>
 
     # Task List
     <string name="is_offering">is offering</string>

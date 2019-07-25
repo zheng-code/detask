@@ -127,7 +127,7 @@ class DashboardActivityTest {
             .check(matches(isDisplayed()))
             .perform(click());
 
-        onView(withId(R.id.login_title)).check(matches(withText(R.string.sign_in_page)))
+        onView(withId(R.id.button_sign_in)).check(matches(isDisplayed()))
 
         // To maintain "Loop Invariant"
         FirebaseAuth.getInstance().signInWithEmailAndPassword("test7@gmail.com", "123456")
