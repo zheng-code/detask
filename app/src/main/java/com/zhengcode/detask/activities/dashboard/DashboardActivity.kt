@@ -120,7 +120,7 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+        setContentView(R.layout.activity_dashboard_2)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         // when this Activity is created, check its corresponding menuItem
