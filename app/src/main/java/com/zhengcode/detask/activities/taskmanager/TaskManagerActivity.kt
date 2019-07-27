@@ -49,7 +49,7 @@ class TaskManagerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_task_manager)
+        setContentView(R.layout.activity_task_manager_2)
 
         offer_input = findViewById(R.id.offer_input)
         title_input = findViewById(R.id.title_input)
