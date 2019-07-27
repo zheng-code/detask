@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.tasks.ViewTaskActivity
+import com.zhengcode.detask.adapters.tasks.TasksAdapter
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.item_recycler.view.*
@@ -49,15 +50,7 @@ class DashboardTaskHistoryAdapter(val context: Context, private val offeredTasks
                 }
 
                 val intent = Intent(context, ViewTaskActivity::class.java)
-                intent.putExtra("offer", currentTask?.offer)
-                intent.putExtra("title", currentTask?.title)
-                intent.putExtra("description", currentTask?.description)
-                intent.putExtra("locationx", currentTask?.locationx)
-                intent.putExtra("locationy", currentTask?.locationy)
-                intent.putExtra("date", currentTask?.date)
-                intent.putExtra("username", currentTask?.username)
-                intent.putExtra("taskID", currentTask?.taskid)
-                intent.putExtra("requestorId", currentTask?.requestorId)
+                intent.putExtra(TasksAdapter.TASK_KEY, currentTask)
                 itemView.context.startActivity(intent)
             }
 
