@@ -40,8 +40,8 @@ class DashboardChatsActivity : AppCompatActivity() {
             val chatPartnerUser = row.chatPartnerUser
 
             // This is a technical debt. Because of the way we implemented the original messaging...
-            val stubTask = OfferedTask(1.0, "", "", 1.0, 1.0, "", "",
-                TaskStatus.WAITING, "", chatPartnerUser?.uid)
+            val stubTask = OfferedTask(1.0, "", "", 1.0, 1.0, "",
+                chatPartnerUser?.username, TaskStatus.WAITING, "", chatPartnerUser?.uid)
 
             intent.putExtra(TasksAdapter.TASK_KEY, stubTask)
 
