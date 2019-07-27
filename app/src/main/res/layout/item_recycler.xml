@@ -1,58 +1,69 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-                                   android:id="@+id/card_view"
+                                   xmlns:tools="http://schemas.android.com/tools" android:id="@+id/card_view"
                                    android:layout_width="match_parent"
                                    android:layout_height="wrap_content"
-                                   android:layout_marginBottom="6dp">
+                                   cardview:cardCornerRadius="15dp"
+                                   android:layout_marginBottom="6dp" android:background="@drawable/bg_form">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
         <ImageView
                 android:id="@+id/image"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:src="@mipmap/ic_launcher"/>
-
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:id="@+id/txvTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Title"
-                    android:textColor="@android:color/holo_blue_dark"/>
-            <TextView
-                    android:id="@+id/txvOffer"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txvTitle"
-                    android:text="Offer"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textStyle="bold" android:layout_marginTop="0dp"/>
-
-            <TextView
-                    android:id="@+id/txvDescription"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txvOffer"
-                    android:text="description"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textStyle="bold" android:layout_marginTop="0dp"/>
-            <TextView
-                    android:id="@+id/txvUsername"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txvDescription"
-                    android:text="username"
-                    android:textColor="@android:color/darker_gray"
-                    android:textStyle="bold" android:layout_marginTop="0dp"/>
-
-        </RelativeLayout>
-    </LinearLayout>
+                android:src="@drawable/ic_boy"
+                android:layout_marginBottom="8dp"
+                cardview:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+                cardview:layout_constraintTop_toTopOf="parent" cardview:layout_constraintVertical_bias="0.0"
+                cardview:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+        <TextView
+                android:id="@+id/txvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textColor="@android:color/holo_blue_dark"
+                cardview:layout_constraintStart_toEndOf="@+id/image"
+                android:layout_marginStart="8dp" cardview:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                cardview:layout_constraintTop_toTopOf="parent" android:textSize="16sp" android:textStyle="bold"
+                android:layout_marginTop="8dp"/>
+        <TextView
+                android:id="@+id/txvOffer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Offer"
+                android:textColor="@android:color/holo_red_dark"
+                android:textStyle="bold"
+                cardview:layout_constraintTop_toBottomOf="@+id/txvTitle" android:layout_marginEnd="8dp"
+                cardview:layout_constraintEnd_toEndOf="parent" cardview:layout_constraintStart_toEndOf="@+id/image"
+                android:layout_marginStart="8dp" android:textSize="16sp"
+                cardview:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"/>
+        <TextView
+                android:id="@+id/txvDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="description"
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="bold" android:layout_marginEnd="8dp"
+                cardview:layout_constraintEnd_toEndOf="parent"
+                cardview:layout_constraintStart_toEndOf="@+id/image" android:layout_marginStart="8dp"
+                cardview:layout_constraintTop_toBottomOf="@+id/txvOffer" android:layout_marginTop="8dp"/>
+        <TextView
+                android:id="@+id/txvUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold"
+                cardview:layout_constraintTop_toBottomOf="@+id/image"
+                cardview:layout_constraintBottom_toBottomOf="parent"
+                cardview:layout_constraintVertical_bias="1.0" android:layout_marginBottom="8dp"
+                android:textAlignment="center"
+                cardview:layout_constraintStart_toStartOf="@+id/image"
+                cardview:layout_constraintEnd_toEndOf="@+id/image"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

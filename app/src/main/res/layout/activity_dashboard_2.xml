@@ -19,7 +19,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/dashboard_username"
                 android:textSize="20sp"
-                android:textColor="#FFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="32dp"
@@ -31,12 +30,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
-                android:textColor="#FFF"
                 android:id="@+id/dashboard_title" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="32dp" android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"/>
+                app:layout_constraintEnd_toStartOf="@+id/imageView" android:textStyle="bold"/>
         <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" app:srcCompat="@drawable/ic_boy"

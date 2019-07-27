@@ -6,6 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.MenuItem
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.zhengcode.detask.R
@@ -15,6 +16,8 @@ import com.zhengcode.detask.adapters.dashboard.DashboardTaskHistoryAdapter
 import com.zhengcode.detask.models.OfferedTask
 import com.zhengcode.detask.utils.Helpers
 import kotlinx.android.synthetic.main.activity_dashboard_task_history.*
+import kotlinx.android.synthetic.main.activity_dashboard_task_history.dashboard_task_history_recycler_view
+import kotlinx.android.synthetic.main.activity_tasks.*
 
 class DashboardTaskHistoryActivity : AppCompatActivity() {
 
@@ -47,7 +50,7 @@ class DashboardTaskHistoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tasks)
+        setContentView(R.layout.activity_dashboard_task_history)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         // when this Activity is created, check its corresponding menuItem
@@ -84,5 +87,6 @@ class DashboardTaskHistoryActivity : AppCompatActivity() {
                 }
             }
         })
+
     }
 }
