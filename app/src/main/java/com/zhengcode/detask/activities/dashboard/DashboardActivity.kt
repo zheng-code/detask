@@ -33,7 +33,6 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_current_tasks -> {
                 val intent = Intent(this, DashboardCurrentTasksActivity::class.java)
                 startActivity(intent)
-                showToast("Clicked on ${getString(R.string.current_tasks)}")
             }
             R.id.btn_chats -> {
                 val intent = Intent(this, DashboardChatsActivity::class.java)
@@ -42,27 +41,22 @@ class DashboardActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_edit_profile -> {
                 val intent = Intent(this, DashboardEditProfileActivity::class.java)
                 startActivity(intent)
-                showToast("Clicked on ${getString(R.string.edit_profile)}")
             }
             R.id.btn_skills -> {
                 val intent = Intent(this, DashboardSkillsActivity::class.java)
                 startActivity(intent)
-                showToast("Clicked on ${getString(R.string.skills)}")
             }
             R.id.btn_traits -> {
                 val intent = Intent(this, DashboardTraitsActivity::class.java)
                 startActivity(intent)
-                showToast("Clicked on ${getString(R.string.traits)}")
             }
             R.id.btn_task_history -> {
                 val intent = Intent(this, DashboardTaskHistoryActivity::class.java)
                 startActivity(intent)
-                showToast("Clicked on ${getString(R.string.task_history)}")
             }
             R.id.btn_settings -> {
                 val intent = Intent(this, DashboardSettingsActivity::class.java)
                 startActivity(intent)
-                showToast("Clicked on ${getString(R.string.settings)}")
             }
             R.id.btn_sign_out -> {
                 AlertDialog.Builder(this).apply {

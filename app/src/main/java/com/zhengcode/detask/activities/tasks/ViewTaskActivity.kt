@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
-import android.widget.Toast
-import com.google.android.gms.maps.GoogleMap
 import com.google.firebase.database.FirebaseDatabase
 import com.zhengcode.detask.R
 import com.zhengcode.detask.activities.messages.ChatLogActivity
@@ -15,6 +13,12 @@ import com.zhengcode.detask.utils.Helpers
 import com.zhengcode.detask.utils.TaskStatus
 import com.zhengcode.detask.utils.showToast
 import kotlinx.android.synthetic.main.task_view_page.*
+import kotlinx.android.synthetic.main.task_view_page.task_view_date
+import kotlinx.android.synthetic.main.task_view_page.task_view_description
+import kotlinx.android.synthetic.main.task_view_page.task_view_offer
+import kotlinx.android.synthetic.main.task_view_page.task_view_title
+import kotlinx.android.synthetic.main.task_view_page.task_view_username
+import kotlinx.android.synthetic.main.task_view_page_2.*
 
 class ViewTaskActivity : AppCompatActivity() {
 
@@ -25,7 +29,7 @@ class ViewTaskActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.task_view_page)
+        setContentView(R.layout.task_view_page_2)
 
         // Take all the data in the selected task and put in the task_view_page
         val currentTask = intent.getParcelableExtra<OfferedTask>(TasksAdapter.TASK_KEY)
@@ -51,6 +55,8 @@ class ViewTaskActivity : AppCompatActivity() {
         val taskid: String = currentTask.taskid
 
         val requestorId: String = currentTask.requestorId!!
+        val status = currentTask.taskStatus
+        task_view_status.text = status.toString()
         // --- End of trying to get Data from the previous intent ---
 
         setUpAcceptButton(offer, title, description, locationx,

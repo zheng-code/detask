@@ -45,7 +45,7 @@ class DashboardTaskHistoryAdapter(val context: Context, private val offeredTasks
                 // observer that you use currentTask, and this is a property
                 // of the class
                 currentTask?.let {
-                    context.showToast(currentTask!!.title + " Clicked !")
+//                    context.showToast(currentTask!!.title + " Clicked !")
                 }
 
                 val intent = Intent(context, ViewTaskActivity::class.java)
