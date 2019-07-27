@@ -24,7 +24,7 @@ class DashboardSkillsActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard_skills)
+        setContentView(R.layout.activity_dashboard_skills_2)
         editTextSkillName = findViewById(R.id.editTextSkillName)
         skills = ArrayList()
 

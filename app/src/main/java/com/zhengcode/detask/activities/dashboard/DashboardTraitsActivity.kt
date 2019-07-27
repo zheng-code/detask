@@ -38,7 +38,7 @@ class DashboardTraitsActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard_traits)
+        setContentView(R.layout.activity_dashboard_traits_2)
         editTextTraitName = findViewById(R.id.editTextTraitName)
         traits = arrayListOf()
 
