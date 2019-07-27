@@ -2,16 +2,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent">
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" android:background="@drawable/bg_menu">
 
         <RelativeLayout
                 android:id="@+id/layoutHead"
-                android:background="#5CC09F"
+                android:background="@android:color/holo_orange_light"
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
 
@@ -76,19 +76,6 @@
                     android:layout_height="wrap_content"/>
 
 
-            <TextView
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:layout_gravity="top"
-                    android:drawablePadding="16dp"
-                    android:drawableLeft="@drawable/ic_phone"
-                    tools:text="+917549161079"
-                    android:enabled="true"
-                    android:id="@+id/text_phone"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="20dp"
-                    android:layout_height="wrap_content"/>
-
-
             <ProgressBar
                     android:id="@+id/progressbar"
                     android:visibility="invisible"
@@ -101,7 +88,7 @@
                     android:id="@+id/button_save"
                     android:layout_marginTop="15dp"
                     android:textColor="@android:color/white"
-                    android:background="?colorPrimary"
+                    android:background="@drawable/rounded_button"
                     android:textAllCaps="false"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/save_changes"
