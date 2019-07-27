@@ -85,7 +85,11 @@ class DashboardTraitsActivity: AppCompatActivity() {
             val trait = Trait(traitName, traitId)
 
             traitId?.let {
-                databaseTraits.child(traitId).setValue(trait)
+                databaseTraits.child(traitId)
+                    .setValue(trait)
+                    .addOnSuccessListener {
+                        editTextTraitName.text.clear()
+                    }
                 showToast("Trait successfully added")
             }
         } else {

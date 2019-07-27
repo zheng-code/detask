@@ -90,7 +90,11 @@ class DashboardSkillsActivity: AppCompatActivity() {
             val skill = Skill(skillName, skillId)
 
             skillId?.let {
-                databaseSkills.child(skillId).setValue(skill)
+                databaseSkills.child(skillId)
+                    .setValue(skill)
+                    .addOnSuccessListener {
+                        editTextSkillName.text.clear()
+                    }
                 showToast("Skill successfully added")
             }
 

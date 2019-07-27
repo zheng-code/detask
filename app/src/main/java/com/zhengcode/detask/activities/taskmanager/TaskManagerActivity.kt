@@ -64,7 +64,7 @@ class TaskManagerActivity : AppCompatActivity() {
         submit_button.setOnClickListener {
 
 
-            val offer = (offer_input.getText().toString().trim()).toDouble()
+            val offer = (offer_input.text.toString().trim()).toDouble()
             val title = title_input.text.toString().trim()
             val description = description_input.text.toString().trim()
             val locationx = location_x_coordinate.text.toString().trim().toDouble()
@@ -92,6 +92,12 @@ class TaskManagerActivity : AppCompatActivity() {
 
             databaseRef.child(taskId).setValue(task).addOnCompleteListener {
                 Toast.makeText(applicationContext, "Task successfully submitted: $title", Toast.LENGTH_LONG).show()
+                offer_input.text.clear()
+                title_input.text.clear()
+                description_input.text.clear()
+                location_x_coordinate.text.clear()
+                location_y_coordinate.text.clear()
+                date_input.text.clear()
 
             }
 
